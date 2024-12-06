@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkySentinel - Seguridad con Drones</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #272e37;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #000;
+        }
+        
+        .navbar h1 {
+            font-size: 1.8em;
+            color: white;
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+        
+        .navbar ul li {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .navbar ul li a, .navbar ul li span {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px; /* Añadir espacio de padding para facilitar la interacción */
+            display: inline-block;
+        }
+        
+        /* Menú desplegable */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 150px;
+            border-radius: 5px;
+            top: 100%; /* Asegura que el submenú esté justo debajo del elemento padre */
+            left: 0;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /* Mostrar el menú desplegable al pasar el cursor */
+        .navbar ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Buscador */
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('img/Header.jpg'); /* Cambia esto por una URL de imagen */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 15px auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero .cta-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: #272e37;
+            font-weight: bold;
+            font-size: 1em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #272e37;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Sección de Misión */
+        .mission-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #1c2229;
+        }
+        
+        .mission-section h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .mission-section p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cfcfcf;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>SkySentinel</h1>
+        <ul>
+            <li><a href="index-2.html">Inicio</a></li>
+            <li>
+                <span>Servicios</span>
+                <div class="dropdown-content">
+                    <a href="drones.html">Drones</a>
+                    <a href="monitoring.html">Monitoreo</a>
+                    <a href="seguro.html">Seguro</a>
+                    <a href="mantenimiento.html">Mantenimiento</a>
+                </div>
+            </li>
+            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+            <li>
+                <span>Contacto</span>
+                <div class="dropdown-content">
+                    <a href="contact.html">Contacto</a>
+                    <a href="customer-support.html">Atención al Cliente</a>
+                </div>
+            </li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Seguridad Avanzada con Drones</h2>
+        <p>En SkySentinel, transformamos la seguridad con la tecnología más avanzada. A través de nuestros drones, 
+            brindamos soluciones de monitoreo y vigilancia personalizadas para proteger lo que más importa. Confía en nosotros 
+            para mantener la integridad de tus instalaciones con la mejor tecnología de seguridad. ¡Descubre cómo podemos ayudarte hoy!</p>
+    </section>
+
+    <!-- Sección de Misión -->
+    <section id="about" class="mission-section">
+        <h3>Nuestra Misión</h3>
+        <p>En SkySentinel, nos comprometemos a ofrecer soluciones de seguridad innovadoras y confiables. Utilizamos drones 
+            de última generación para proporcionar monitoreo eficiente y protección avanzada, garantizando la seguridad de tus 
+            instalaciones las 24 horas del día, los 7 días de la semana.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 SkySentinel. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

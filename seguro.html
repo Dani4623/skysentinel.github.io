@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro - SkySentinel</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #272e37;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #000;
+        }
+        
+        .navbar h1 {
+            font-size: 1.8em;
+            color: white;
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+        
+        .navbar ul li {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .navbar ul li a, .navbar ul li span {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            display: inline-block;
+        }
+        
+        /* Menú desplegable */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 150px;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 5;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /* Mostrar el menú desplegable al pasar el cursor */
+        .navbar ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Buscador */
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('img/dji-mavic-3-pro-precio.jpg'); /* Cambia esto por una URL de imagen de seguros */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 15px auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero .cta-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: #272e37;
+            font-weight: bold;
+            font-size: 1em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #272e37;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Sección de Seguro */
+        .insurance-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: #1c2229;
+        }
+
+        .insurance-card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 280px;
+            text-align: center;
+            color: white;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .insurance-card:hover {
+            transform: scale(1.05);
+        }
+
+        .insurance-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .insurance-card h3 {
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+
+        .insurance-card p {
+            font-size: 1.1em;
+            color: #cfcfcf;
+            margin: 10px 0;
+        }
+
+        .insurance-card .cta-button {
+            background-color: #f1c40f;
+            color: #272e37;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .insurance-card .cta-button:hover {
+            background-color: #272e37;
+            color: white;
+            border: 2px solid #f1c40f;
+        }
+
+        /* Estilos para el menú desplegable de características */
+        .dropdown-characteristics {
+            display: none;
+            background-color: #333;
+            border-radius: 5px;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            position: absolute;
+            width: 100%;
+            top: 60px;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>SkySentinel</h1>
+        <ul>
+            <li><a href="index-2.html">Inicio</a></li>
+            <li>
+                <span>Servicios</span>
+                <div class="dropdown-content">
+                    <a href="drones.html">Drones</a>
+                    <a href="monitoring.html">Monitoreo</a>
+                    <a href="seguro.html">Seguro</a>
+                    <a href="mantenimiento.html">Mantenimiento</a>
+                </div>
+            </li>
+            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+            <li>
+                <span>Contacto</span>
+                <div class="dropdown-content">
+                    <a href="contact.html">Contacto</a>
+                    <a href="customer-support.html">Atención al Cliente</a>
+                </div>
+            </li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Protección de Seguros para Drones</h2>
+        <p>Asegura tus drones con coberturas completas para cualquier situación.</p>
+        <a href="#insurance">
+            <button class="cta-button">Explora Opciones</button>
+        </a>
+    </section>
+
+    <!-- Sección de Seguro -->
+    <section class="insurance-section" id="insurance">
+        <div class="insurance-card">
+            <img src="img/seguro-para-drones-ob.jpg" alt="Seguro Básico">
+            <h3>Seguro Básico</h3>
+            <p>Cobertura esencial para daños menores.</p>
+            <button class="cta-button" onclick="toggleCharacteristics('insurance1')">Ver Características</button>
+            <div class="dropdown-characteristics" id="insurance1">
+                <ul>
+                    <li>Cobertura de daños estructurales menores</li>
+                    <li>Soporte técnico básico</li>
+                    <li>Reparación de componentes esenciales</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="insurance-card">
+            <img src="img/seguros-para-drones.jpg" alt="Seguro Completo">
+            <h3>Seguro Completo</h3>
+            <p>Cobertura total contra cualquier daño físico.</p>
+            <button class="cta-button" onclick="toggleCharacteristics('insurance2')">Ver Características</button>
+            <div class="dropdown-characteristics" id="insurance2">
+                <ul>
+                    <li>Cobertura de daños estructurales y electrónicos</li>
+                    <li>Asistencia técnica avanzada</li>
+                    <li>Reemplazo de componentes críticos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="insurance-card">
+            <img src="img/Seguro-dron.jpg" alt="Seguro Corporativo">
+            <h3>Seguro Corporativo</h3>
+            <p>Protección completa para flotas de drones empresariales.</p>
+            <button class="cta-button" onclick="toggleCharacteristics('insurance3')">Ver Características</button>
+            <div class="dropdown-characteristics" id="insurance3">
+                <ul>
+                    <li>Cobertura de daños para flotas</li>
+                    <li>Atención prioritaria 24/7</li>
+                    <li>Reemplazo inmediato de unidades</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 SkySentinel - Soluciones de Seguro para Drones</p>
+    </footer>
+
+    <script>
+        function toggleCharacteristics(id) {
+            const element = document.getElementById(id);
+            element.style.display = (element.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
